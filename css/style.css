@@ -548,6 +548,17 @@ a:focus-visible {
   transform: translateY(14px);
 }
 
+/* 顯示狀態。
+   注意：這裡必須逐一加上與隱藏狀態相同的元素層級。
+   隱藏規則 `.js .contact__list li` 的優先級是 (0,2,1)，
+   若顯示規則只寫 `.js .is-in`（(0,2,0)），優先級較低會被蓋掉，
+   導致聯絡區塊永久停在 opacity: 0。教訓：兩邊選擇器結構必須對稱。 */
+.js .section__title.is-in,
+.js .about__narrative.is-in,
+.js .timeline__item.is-in,
+.js .work.is-in,
+.js .verse__item.is-in,
+.js .contact__list li.is-in,
 .js .is-in {
   opacity: 1;
   transform: translateY(0);
