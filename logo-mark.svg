@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="高虹娜">
+  <title>高虹娜</title>
+  <!--
+    標誌意象：硃砂方印中的月與水
+    月 → 藍眼淚、長河漸落曉星沉
+    水 → 江南可採蓮、小舟從此逝江海寄餘生
+    全為幾何圖形，不依賴任何字型，因此在任何尺寸與裝置都不會跑版。
+  -->
+  <rect x="3" y="3" width="58" height="58" rx="7" fill="#9E2B25"/>
+  <circle cx="32" cy="24" r="11" fill="#EFE8DC"/>
+  <rect x="11" y="42.5" width="42" height="3.5" rx="1.75" fill="#EFE8DC"/>
+</svg>
