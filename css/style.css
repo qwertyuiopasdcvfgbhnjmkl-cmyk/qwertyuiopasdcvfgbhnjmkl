@@ -236,6 +236,14 @@ a:focus-visible {
   display: none;
 }
 
+.about__narrative p {
+  margin-bottom: var(--s3);
+}
+
+.about__narrative p:last-child {
+  margin-bottom: 0;
+}
+
 .about__facts {
   display: grid;
   grid-template-columns: 5rem 1fr;
