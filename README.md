@@ -1,7 +1,7 @@
 # 餐飲視覺個人網站
 
 澎湖科技大學餐飲系學生的個人網站，專長中餐。
-部署於 GitHub Pages：https://qwertyuiopasdcvfgbhnjmkl.github.io
+部署於 GitHub Pages：https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io/qwertyuiopasdcvfgbhnjmkl
 
 ## 技術選擇
 
@@ -43,16 +43,17 @@
 
 ## 部署到 GitHub Pages
 
-1. 在 GitHub 建立一個 **Public** 倉庫，名稱必須**完全等於** `qwertyuiopasdcvfgbhnjmkl.github.io`
+1. 在帳號 `qwertyuiopasdcvfgbhnjmkl-cmyk` 下建立一個 **Public** 倉庫，名稱為 `qwertyuiopasdcvfgbhnjmkl`
 2. 將本資料夾的檔案推上去（`index.html`、`css/`、`images/`）
 3. 到倉庫 **Settings → Pages**
 4. **Source** 選 `Deploy from a branch`
 5. **Branch** 選 `main`，資料夾選 `/ (root)`
 6. 儲存，等 1–2 分鐘
-7. 訪問 https://qwertyuiopasdcvfgbhnjmkl.github.io
+7. 訪問 https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io/qwertyuiopasdcvfgbhnjmkl
 
 注意：倉庫必須是 **Public**，Private 倉庫無法使用 GitHub Pages。
-注意：必須先到 https://github.com/qwertyuiopasdcvfgbhnjmkl 確認帳號已存在。
+注意：這是**專案網站**（repository site），所以網址會帶 `/qwertyuiopasdcvfgbhnjmkl` 這段子路徑。
+注意：頁面內部使用相對路徑（`css/style.css`），因此在子路徑下也能正常載入，不需額外設定 base。
 
 ## 字體說明
 
