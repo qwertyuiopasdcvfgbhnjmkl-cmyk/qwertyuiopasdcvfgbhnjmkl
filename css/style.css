@@ -306,6 +306,37 @@ a:focus-visible {
 }
 
 /* ------------------------------------------------------------
+   餐廳造景：直書，由右至左
+   ------------------------------------------------------------ */
+.verse__intro {
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+  line-height: 1.95;
+}
+
+.verse {
+  display: flex;
+  flex-direction: row-reverse;   /* 由右至左，符合傳統直書順序 */
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--s4);
+  margin-top: var(--s4);
+}
+
+/* 每句直排成一行 */
+.verse__item {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 2;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
    6. 03 作品
    ------------------------------------------------------------ */
 .works {
@@ -472,5 +503,17 @@ a:focus-visible {
 
   .about__narrative {
     font-size: 1rem;
+  }
+
+  /* 手機改為橫排直書，避免直排過高 */
+  .verse {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s2);
+  }
+
+  .verse__item {
+    writing-mode: horizontal-tb;
+    letter-spacing: 0.1em;
   }
 }
