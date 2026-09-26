@@ -12,8 +12,21 @@
 </head>
 <body>
 
+<!-- ============ 中國風冊頁外框（純裝飾，不攔截點擊）============ -->
+<div class="frame" aria-hidden="true">
+  <span class="frame__corner frame__corner--tl"></span>
+  <span class="frame__corner frame__corner--tr"></span>
+  <span class="frame__corner frame__corner--bl"></span>
+  <span class="frame__corner frame__corner--br"></span>
+</div>
+
 <!-- ============ 01 首頁 ============ -->
 <header class="hero">
+  <svg class="hero__landscape" viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+    <path fill="currentColor" fill-opacity="0.045" d="M0,196 C190,150 300,182 450,162 C600,142 700,190 850,166 C1000,142 1100,178 1250,156 C1400,134 1500,166 1600,150 L1600,400 L0,400 Z"></path>
+    <path fill="currentColor" fill-opacity="0.065" d="M0,258 C150,220 260,256 400,236 C540,216 650,266 800,241 C950,216 1050,256 1200,236 C1350,216 1480,251 1600,230 L1600,400 L0,400 Z"></path>
+    <path fill="currentColor" fill-opacity="0.09" d="M0,330 C180,290 300,331 480,306 C660,281 780,336 960,311 C1140,286 1300,331 1600,300 L1600,400 L0,400 Z"></path>
+  </svg>
   <h1 class="hero__name">高虹娜</h1>
   <p class="hero__tagline">餐飲系學生，專注餐飲視覺</p>
   <p class="hero__school">澎湖科技大學</p>
@@ -107,9 +120,32 @@
 
 </main>
 
+<!-- ============ 回紋飾帶（雙層巢狀方螺旋，12 單元 × 20px）============ -->
+<svg class="fret-divider" viewBox="0 0 240 20" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true">
+  <path d="M0 20
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8
+           v-16 h16 v16 m-10 0 v-10 h6 v10 h8"
+        fill="none" stroke="#7A6355" stroke-width="1.2"
+        stroke-linecap="butt" stroke-linejoin="miter"/>
+</svg>
+
 <footer class="footer">
   <hr class="footer__rule">
   <p>高虹娜・澎湖科技大學</p>
+  <svg class="seal" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+    <rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="currentColor" stroke-width="2.5"></rect>
+    <path fill="currentColor" d="M8,8 h4.6 v4.6 h-4.6 z M19.4,8 h4.6 v4.6 h-4.6 z M8,14 h4.6 v4.6 h-4.6 z M15.2,10.3 h1.6 v7.4 h-1.6 z M19.4,14 h4.6 v4.6 h-4.6 z M8,20.4 h4.6 v4.6 h-4.6 z M19.4,20.4 h4.6 v4.6 h-4.6 z"></path>
+  </svg>
 </footer>
 
 </body>

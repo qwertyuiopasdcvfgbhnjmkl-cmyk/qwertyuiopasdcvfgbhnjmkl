@@ -1,8 +1,8 @@
 /* ============================================================
-   餐飲視覺個人網站 — 設計系統
+   個人網站 — 設計系統（水墨山水）
    ------------------------------------------------------------
-   風格：簡約、乾淨、有質感
-   配色：咖啡色系 + 淺灰背景
+   風格：簡約、乾淨、有質感、中國風
+   配色：宣紙米色底 + 墨色文字 + 硃砂紅印
    動畫：全站無
    ============================================================ */
 
@@ -10,12 +10,12 @@
    1. 設計代幣
    ------------------------------------------------------------ */
 :root {
-  /* --- 咖啡色系 --- */
-  --bg:       #F5F3F1;   /* 背景：暖調淺灰        */
-  --ink:      #3D2B1F;   /* 主要文字：深咖啡      對比 12.1:1  AAA */
-  --ink-soft: #7A6355;   /* 次要文字：淺咖啡      對比  5.1:1  AA  */
-  --line:     #D8CCC2;   /* 分隔線：淡咖啡                裝飾用   */
-  --accent:   #2A1D15;   /* 連結：深焙          對比 13.4:1  AAA */
+  /* --- 水墨色系 --- */
+  --paper:    #EFE8DC;             /* 宣紙米色（背景）              */
+  --ink:      #2E2A26;             /* 墨色：主要文字   對比 11.7:1 AAA */
+  --ink-soft: #5F5A52;             /* 淡墨：次要文字   對比  5.6:1 AA  */
+  --rule:     rgba(46, 42, 38, 0.14); /* 墨色透明線：分隔線            */
+  --seal:     #9E2B25;             /* 硃砂紅：印章                   */
 
   /* --- 繁體中文字體堆疊 --- */
   --font-serif: "Noto Serif TC", "Source Han Serif TC", "Songti TC",
@@ -61,7 +61,7 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--bg);
+  background-color: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 1rem;
@@ -70,6 +70,18 @@ body {
   letter-spacing: 0.02em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* 宣紙纖維質感：極輕微噪點，疊在整頁最上層，不影響閱讀 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 img {
@@ -90,9 +102,9 @@ ul, ol {
 li { margin-bottom: var(--s1); }
 
 a {
-  color: var(--accent);
+  color: var(--ink);
   text-decoration: none;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--rule);
   padding-bottom: 1px;
 }
 
@@ -105,6 +117,8 @@ a:focus-visible {
    3. 結構
    ------------------------------------------------------------ */
 .container {
+  position: relative;
+  z-index: 1;
   max-width: var(--measure);
   margin: 0 auto;
   padding-left: var(--s3);
@@ -115,17 +129,21 @@ a:focus-visible {
   max-width: var(--wide);
 }
 
-/* 分隔線：淡咖啡細線，同時承擔區塊結構的功能 */
+/* 分隔線：墨色透明細線，同時承擔區塊結構的功能 */
 .rule {
+  position: relative;
+  z-index: 1;
   border: 0;
   height: 1px;
-  background-color: var(--line);
+  background-color: var(--rule);
   max-width: var(--wide);
   margin: var(--s6) auto;
   padding: 0;
 }
 
 .section {
+  position: relative;
+  z-index: 1;
   padding-top: var(--s1);
 }
 
@@ -142,20 +160,35 @@ a:focus-visible {
    4. 01 首頁
    ------------------------------------------------------------ */
 .hero {
+  position: relative;
+  z-index: 1;
   max-width: var(--measure);
   margin: 0 auto;
   padding: var(--s6) var(--s3) var(--s5);
   text-align: center;
 }
 
+/* 山水：只畫在開場區，內文區維持乾淨宣紙底以確保可讀性 */
+.hero__landscape {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 46%;
+  z-index: -1;
+  pointer-events: none;
+  color: var(--ink);
+}
+
 .hero__name {
+  position: relative;
   font-family: var(--font-serif);
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: 0.1em;
   margin-bottom: var(--s3);
-  /* 保留姓名欄位空間，避免姓名補上後版面跳動 */
   min-height: 1.5em;
 }
 
@@ -180,7 +213,7 @@ a:focus-visible {
   line-height: 2.1;
   color: var(--ink);
   padding-left: var(--s3);
-  border-left: 1px solid var(--line);
+  border-left: 1px solid var(--rule);
   margin-bottom: var(--s4);
 }
 
@@ -301,31 +334,46 @@ a:focus-visible {
   color: var(--ink);
   font-size: 1rem;
   letter-spacing: 0.02em;
+  word-break: break-all;
 }
 
-/* Email 與 GitHub 連結 */
 .contact a {
-  color: var(--accent);
-  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
 }
 
 /* ------------------------------------------------------------
-   8. 頁尾
+   8. 頁尾 + 硃砂印章
    ------------------------------------------------------------ */
 .footer {
+  position: relative;
+  z-index: 1;
   max-width: var(--measure);
   margin: 0 auto;
   padding: 0 var(--s3) var(--s5);
   color: var(--ink-soft);
   font-size: 0.75rem;
   letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
 }
 
 .footer__rule {
+  flex: 1;
   border: 0;
   height: 1px;
-  background-color: var(--line);
-  margin-bottom: var(--s2);
+  background-color: var(--rule);
+  margin: 0;
+}
+
+/* 硃砂紅印：中國風最有力的單一符號 */
+.seal {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: block;
+  color: var(--seal);
 }
 
 /* ------------------------------------------------------------
@@ -348,6 +396,10 @@ a:focus-visible {
 
   .hero__name {
     font-size: 1.625rem;
+  }
+
+  .hero__landscape {
+    height: 38%;
   }
 
   .work__title {
