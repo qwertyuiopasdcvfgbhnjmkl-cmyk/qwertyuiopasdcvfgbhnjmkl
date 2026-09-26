@@ -52,6 +52,41 @@
   }
 
   /* ------------------------------------------------------------
+     1b. 保險機制
+     ------------------------------------------------------------
+     進場動畫的初始狀態是 opacity: 0，若觀察沒有觸發，內容會永久
+     隱形。這是不可接受的風險，尤其聯絡區塊是訪客最需要看到的
+     地方。因此另外用 scroll 事件直接比對位置，任何進入畫面的
+     元素一定會顯示，兩套機制互補。
+     ------------------------------------------------------------ */
+  var pending = [].concat.apply([], groups).filter(function (el) {
+    return !el.classList.contains('is-in');
+  });
+
+  function sweep() {
+    if (!pending.length) {
+      window.removeEventListener('scroll', sweep);
+      window.removeEventListener('resize', sweep);
+      return;
+    }
+    var vh = window.innerHeight || 0;
+    var rest = [];
+    pending.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) {
+        el.classList.add('is-in');
+      } else {
+        rest.push(el);
+      }
+    });
+    pending = rest;
+  }
+
+  window.addEventListener('scroll', sweep, { passive: true });
+  window.addEventListener('resize', sweep, { passive: true });
+  sweep();
+
+  /* ------------------------------------------------------------
      2. 朱印蓋印
      ------------------------------------------------------------ */
   var seal = document.querySelector('.seal');
