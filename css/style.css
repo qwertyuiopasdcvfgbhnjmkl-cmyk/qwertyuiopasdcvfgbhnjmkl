@@ -253,6 +253,59 @@ a:focus-visible {
 }
 
 /* ------------------------------------------------------------
+   經歷
+   ------------------------------------------------------------ */
+.timeline__title {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--ink);
+  margin-top: var(--s5);
+  margin-bottom: var(--s3);
+}
+
+.timeline__item {
+  padding-left: var(--s3);
+  border-left: 1px solid var(--rule);
+  margin-bottom: var(--s3);
+}
+
+.timeline__item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline__label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  margin-bottom: 0.25rem;
+}
+
+.timeline__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline__list li {
+  font-size: 0.9375rem;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.timeline__list li:last-child {
+  margin-bottom: 0;
+}
+
+.timeline__text {
+  font-size: 0.9375rem;
+  color: var(--ink);
+  line-height: 1.95;
+}
+
+/* ------------------------------------------------------------
    6. 03 作品
    ------------------------------------------------------------ */
 .works {
