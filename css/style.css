@@ -45,17 +45,9 @@
   box-sizing: border-box;
 }
 
-/* 驗收標準 #6：無動畫效果 — 強制關閉所有動畫與過場 */
-*,
-*::before,
-*::after {
-  animation: none !important;
-  transition: none !important;
-}
-
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-behavior: auto !important;
+  scroll-behavior: auto;
   font-size: 100%;
 }
 
@@ -101,11 +93,24 @@ ul, ol {
 
 li { margin-bottom: var(--s1); }
 
+/* 連結：底線為兩層。下層淡墨常駐（保留可點的線索），
+   上層墨色在滑過時由左掃出 */
 a {
   color: var(--ink);
   text-decoration: none;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 1px;
+  padding-bottom: 2px;
+  background-image:
+    linear-gradient(var(--rule), var(--rule)),
+    linear-gradient(var(--ink), var(--ink));
+  background-repeat: no-repeat;
+  background-position: 0 100%, 0 100%;
+  background-size: 100% 1px, 0% 1px;
+  transition: background-size 340ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+a:hover,
+a:focus-visible {
+  background-size: 100% 1px, 100% 1px;
 }
 
 a:focus-visible {
@@ -446,7 +451,6 @@ a:focus-visible {
 
 .contact a {
   color: var(--ink);
-  border-bottom: 1px solid var(--rule);
 }
 
 /* ------------------------------------------------------------
@@ -523,5 +527,102 @@ a:focus-visible {
   .verse__item {
     writing-mode: horizontal-tb;
     letter-spacing: 0.1em;
+  }
+}
+
+/* ------------------------------------------------------------
+   10. 互動與視覺效果
+   ------------------------------------------------------------
+   所有隱藏初始狀態都寫在 .js 之下。JS 若未載入、失效或使用者
+   關閉動效，內容一律正常顯示，不會出現空白頁面。
+   ------------------------------------------------------------ */
+
+/* 捲動進場：元素浮現，並依同群組順序錯開 */
+.js .section__title,
+.js .about__narrative,
+.js .timeline__item,
+.js .work,
+.js .verse__item,
+.js .contact__list li {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.js .is-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0ms),
+    transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0ms);
+}
+
+/* 首頁入場 */
+.js .hero__inner {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 120ms,
+    transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 120ms;
+}
+
+.js .hero__inner.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 朱印蓋印：自放大歪斜收正，模仿印章落紙 */
+.js .seal.is-stamp {
+  animation: stamp 900ms cubic-bezier(0.34, 1.4, 0.64, 1) 700ms both;
+}
+
+@keyframes stamp {
+  0%   { opacity: 0; transform: scale(1.7) rotate(-9deg); }
+  55%  { opacity: 1; transform: scale(0.93) rotate(2.5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* 作品標題墨暈：以遮罩由左暈開，像墨在紙上散開。
+   瀏覽器不支援遮罩時整段仍可見，只是少了暈開效果。 */
+.js .work__title {
+  -webkit-mask-image: radial-gradient(130% 100% at 12% 50%, #000 32%, rgba(0, 0, 0, 0) 74%);
+  mask-image: radial-gradient(130% 100% at 12% 50%, #000 32%, rgba(0, 0, 0, 0) 74%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 0% 100%;
+  mask-size: 0% 100%;
+}
+
+.js .work__title.is-in {
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  transition:
+    -webkit-mask-size 1000ms cubic-bezier(0.22, 0.61, 0.36, 1) 120ms,
+    mask-size 1000ms cubic-bezier(0.22, 0.61, 0.36, 1) 120ms;
+}
+
+/* 尊重使用者的系統「減少動態效果」設定 */
+@media (prefers-reduced-motion: reduce) {
+  .js .hero__inner,
+  .js .section__title,
+  .js .about__narrative,
+  .js .timeline__item,
+  .js .work,
+  .js .verse__item,
+  .js .contact__list li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js .work__title {
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+
+  .js .seal.is-stamp {
+    animation: none;
+  }
+
+  a {
+    transition: none;
   }
 }
