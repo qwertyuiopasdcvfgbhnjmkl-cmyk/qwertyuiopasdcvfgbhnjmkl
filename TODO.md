@@ -65,10 +65,36 @@
 
 ## 階段六：部署
 
-- [ ] 21. 建立 GitHub 帳號（目前 404）
-- [ ] 22. 建立 `qwertyuiopasdcvfgbhnjmkl.github.io` 倉庫
-- [ ] 23. 推送並啟用 Pages
-- [ ] 24. 線上驗收
+- [x] 21. GitHub 帳號（實際為 `qwertyuiopasdcvfgbhnjmkl-cmyk`，已授權登入）
+- [x] 22. 建立公開倉庫 `qwertyuiopasdcvfgbhnjmkl`
+- [x] 23. 推送並啟用 Pages
+- [x] 24. 線上驗收
+
+### 部署結果（2026-09-26）
+
+| 項目 | 內容 |
+|---|---|
+| 線上網址 | https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io/qwertyuiopasdcvfgbhnjmkl |
+| 倉庫 | `qwertyuiopasdcvfgbhnjmkl-cmyk/qwertyuiopasdcvfgbhnjmkl`（Public） |
+| 網站類型 | **專案網站**（repository site），網址帶 `/qwertyuiopasdcvfgbhnjmkl` 子路徑 |
+| Pages 來源 | `main` 分支 / 根目錄 |
+| 首次上線 | HTTP 200，建置狀態 `built` |
+
+線上驗收結果：
+
+| # | 標準 | 線上結果 |
+|---|---|---|
+| 1 | 區塊順序 | ✅ hero → about → works → contact |
+| 2 | 姓名／學校／Email | ✅ 全部正確 |
+| 3 | 三份作品齊全且說明正確 | ⚠️ 標題與媒材齊全，**說明文字仍缺**（項 14、15） |
+| 4 | 聯絡可點 | ✅ Email `mailto:` 可點；GitHub 連結已修正並回應 200 |
+| 5 | 繁體中文、無錯字無佔位 | ✅ 簡體字 0 處、佔位字 0 處 |
+| 6 | 無動畫、咖啡色配淺灰底 | ✅ `transition`/`animation` 皆為 none，5 色全相符 |
+| 7 | 電腦上開啟正常 | ✅ 線上 HTTP 200，CSS 正常載入（背景 `#F5F3F1`） |
+
+> 註：原訂的 `qwertyuiopasdcvfgbhnjmkl.github.io` 無法使用。該名稱的 GitHub 帳號並不存在，
+> 目前登入的帳號為 `qwertyuiopasdcvfgbhnjmkl-cmyk`，網址由帳號名決定，故改用專案網站部署。
+> 若要取得 `qwertyuiopasdcvfgbhnjmkl.github.io`，需另行註冊同名帳號並授權後重新部署。
 
 ---
 
