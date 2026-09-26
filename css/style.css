@@ -1,0 +1,360 @@
+/* ============================================================
+   餐飲視覺個人網站 — 設計系統
+   ------------------------------------------------------------
+   風格：簡約、乾淨、有質感
+   配色：咖啡色系 + 淺灰背景
+   動畫：全站無
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. 設計代幣
+   ------------------------------------------------------------ */
+:root {
+  /* --- 咖啡色系 --- */
+  --bg:       #F5F3F1;   /* 背景：暖調淺灰        */
+  --ink:      #3D2B1F;   /* 主要文字：深咖啡      對比 12.1:1  AAA */
+  --ink-soft: #7A6355;   /* 次要文字：淺咖啡      對比  5.1:1  AA  */
+  --line:     #D8CCC2;   /* 分隔線：淡咖啡                裝飾用   */
+  --accent:   #2A1D15;   /* 連結：深焙          對比 13.4:1  AAA */
+
+  /* --- 繁體中文字體堆疊 --- */
+  --font-serif: "Noto Serif TC", "Source Han Serif TC", "Songti TC",
+                "Times New Roman", "PMingLiU", serif;
+  --font-sans:  "Noto Sans TC", "Source Han Sans TC", "PingFang TC",
+                "Microsoft JhengHei", "Heiti TC", sans-serif;
+
+  /* --- 間距刻度（8px 為單位） --- */
+  --s1: 0.5rem;    /*  8px */
+  --s2: 1rem;      /* 16px */
+  --s3: 1.5rem;    /* 24px */
+  --s4: 2.5rem;    /* 40px */
+  --s5: 4rem;      /* 64px */
+  --s6: 6rem;      /* 96px */
+
+  /* --- 寬度 --- */
+  --measure: 40rem;   /* 640px：內文寬度，約中文 40 字一行 */
+  --wide:    56rem;   /* 896px：圖片寬度 */
+}
+
+/* ------------------------------------------------------------
+   2. 重置
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 驗收標準 #6：無動畫效果 — 強制關閉所有動畫與過場 */
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: auto !important;
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4, p, dl, dd, figure, blockquote {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+li { margin-bottom: var(--s1); }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------
+   3. 結構
+   ------------------------------------------------------------ */
+.container {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding-left: var(--s3);
+  padding-right: var(--s3);
+}
+
+.container--wide {
+  max-width: var(--wide);
+}
+
+/* 分隔線：淡咖啡細線，同時承擔區塊結構的功能 */
+.rule {
+  border: 0;
+  height: 1px;
+  background-color: var(--line);
+  max-width: var(--wide);
+  margin: var(--s6) auto;
+  padding: 0;
+}
+
+.section {
+  padding-top: var(--s1);
+}
+
+.section__title {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--ink);
+  margin-bottom: var(--s4);
+}
+
+/* ------------------------------------------------------------
+   4. 01 首頁
+   ------------------------------------------------------------ */
+.hero {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--s6) var(--s3) var(--s5);
+  text-align: center;
+}
+
+.hero__name {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--s3);
+  /* 保留姓名欄位空間，避免姓名補上後版面跳動 */
+  min-height: 1.5em;
+}
+
+.hero__tagline {
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--s2);
+}
+
+.hero__school {
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+/* ------------------------------------------------------------
+   5. 02 關於我
+   ------------------------------------------------------------ */
+.about__narrative {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 2.1;
+  color: var(--ink);
+  padding-left: var(--s3);
+  border-left: 1px solid var(--line);
+  margin-bottom: var(--s4);
+}
+
+.about__narrative:empty {
+  display: none;
+}
+
+.about__facts {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: var(--s1) var(--s2);
+  font-size: 0.9375rem;
+}
+
+.about__facts dt {
+  color: var(--ink-soft);
+  letter-spacing: 0.1em;
+}
+
+.about__facts dd {
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------
+   6. 03 作品
+   ------------------------------------------------------------ */
+.works {
+  display: block;
+}
+
+.work {
+  margin-bottom: var(--s6);
+}
+
+.work:last-child {
+  margin-bottom: 0;
+}
+
+/* 照片未提供時保留版面空間，避免日後補圖時大幅位移
+   照片在寬螢幕上向外延伸至 --wide，文字則維持 --measure 對齊，
+   讓所有區塊的起始邊界一致 */
+.work__figure {
+  margin-bottom: var(--s3);
+  background-color: transparent;
+}
+
+@media (min-width: 64rem) {
+  .work__figure {
+    margin-left: calc((var(--measure) - var(--wide)) / 2);
+    margin-right: calc((var(--measure) - var(--wide)) / 2);
+  }
+}
+
+.work__figure img {
+  width: 100%;
+}
+
+.work__index {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--s1);
+}
+
+.work__title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--s1);
+}
+
+.work__medium {
+  color: var(--ink-soft);
+  font-size: 0.8125rem;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--s3);
+}
+
+.work__body p {
+  margin-bottom: var(--s2);
+}
+
+.work__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* 詩文：較窄行寬與較寬行高，營造呼吸感 */
+.work__poem {
+  white-space: pre-line;
+  line-height: 2.2;
+  letter-spacing: 0.06em;
+}
+
+/* ------------------------------------------------------------
+   7. 04 聯絡
+   ------------------------------------------------------------ */
+.contact__list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact__list li {
+  margin-bottom: var(--s2);
+}
+
+.contact__label {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.25rem;
+}
+
+.contact__value {
+  color: var(--ink);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Email 與 GitHub 連結 */
+.contact a {
+  color: var(--accent);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ------------------------------------------------------------
+   8. 頁尾
+   ------------------------------------------------------------ */
+.footer {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--s3) var(--s5);
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.footer__rule {
+  border: 0;
+  height: 1px;
+  background-color: var(--line);
+  margin-bottom: var(--s2);
+}
+
+/* ------------------------------------------------------------
+   9. 響應式
+   ------------------------------------------------------------ */
+@media (max-width: 40rem) {
+  :root {
+    --s5: 3rem;
+    --s6: 4rem;
+  }
+
+  body {
+    font-size: 0.9375rem;
+    line-height: 1.95;
+  }
+
+  .hero {
+    padding: var(--s5) var(--s3) var(--s4);
+  }
+
+  .hero__name {
+    font-size: 1.625rem;
+  }
+
+  .work__title {
+    font-size: 1.25rem;
+  }
+
+  .about__narrative {
+    font-size: 1rem;
+  }
+}
