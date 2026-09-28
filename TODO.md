@@ -1,6 +1,6 @@
 # 個人網站開發 Todo
 
-網址：https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io/qwertyuiopasdcvfgbhnjmkl
+網址：https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io
 風格：簡約・咖啡色系・淺灰底・靜態・繁體中文
 
 ---
@@ -88,8 +88,8 @@
 
 | 項目 | 內容 |
 |---|---|
-| 線上網址 | https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io/qwertyuiopasdcvfgbhnjmkl |
-| 倉庫 | `qwertyuiopasdcvfgbhnjmkl-cmyk/qwertyuiopasdcvfgbhnjmkl`（Public） |
+| 線上網址 | https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io |
+| 倉庫 | `qwertyuiopasdcvfgbhnjmkl-cmyk/qwertyuiopasdcvfgbhnjmkl-cmyk.github.io`（Public） |
 | 網站類型 | **專案網站**（repository site），網址帶 `/qwertyuiopasdcvfgbhnjmkl` 子路徑 |
 | Pages 來源 | `main` 分支 / 根目錄 |
 | 首次上線 | HTTP 200，建置狀態 `built` |

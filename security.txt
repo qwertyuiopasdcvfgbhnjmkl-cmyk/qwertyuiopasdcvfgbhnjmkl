@@ -1,4 +1,4 @@
 Contact: mailto:d15403035@ems.npu.edu.tw
 Expires: 2027-09-29T00:00:00.000Z
 Preferred-Languages: zh-TW, zh
-Canonical: https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io/qwertyuiopasdcvfgbhnjmkl/
+Canonical: https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io/

@@ -1,7 +1,7 @@
 # 餐飲視覺個人網站
 
 澎湖科技大學餐飲系學生的個人網站，專長中餐。
-部署於 GitHub Pages：https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io/qwertyuiopasdcvfgbhnjmkl
+部署於 GitHub Pages：https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io
 
 ## 技術選擇
 
@@ -61,7 +61,7 @@
 4. **Source** 選 `Deploy from a branch`
 5. **Branch** 選 `main`，資料夾選 `/ (root)`
 6. 儲存，等 1–2 分鐘
-7. 訪問 https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io/qwertyuiopasdcvfgbhnjmkl
+7. 訪問 https://qwertyuiopasdcvfgbhnjmkl-cmyk.github.io
 
 注意：倉庫必須是 **Public**，Private 倉庫無法使用 GitHub Pages。
 注意：這是**專案網站**（repository site），所以網址會帶 `/qwertyuiopasdcvfgbhnjmkl` 這段子路徑。
