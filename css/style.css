@@ -611,6 +611,26 @@ a:focus-visible {
     mask-size 1000ms cubic-bezier(0.22, 0.61, 0.36, 1) 120ms;
 }
 
+/* 使用者關閉 JavaScript、或瀏覽器不支援 scripting 媒體特性時，
+   一律顯示全部內容。動畫是裝飾，內容可讀性才是優先。 */
+@media (scripting: none) {
+  .js .hero__inner,
+  .js .section__title,
+  .js .about__narrative,
+  .js .timeline__item,
+  .js .work,
+  .js .verse__item,
+  .js .contact__list li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js .work__title {
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+}
+
 /* 尊重使用者的系統「減少動態效果」設定 */
 @media (prefers-reduced-motion: reduce) {
   .js .hero__inner,

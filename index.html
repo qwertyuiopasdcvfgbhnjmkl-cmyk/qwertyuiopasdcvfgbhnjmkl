@@ -7,6 +7,13 @@
 <meta name="description" content="高虹娜，澎湖科技大學餐飲系學生，專長中餐，專注餐飲視覺創作。">
 <!-- 跨站請求不帶出完整網址路徑，減少個資外洩 -->
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- 內容安全政策：僅允許本站自有資源與 Google Fonts（字型）。
+     沒有表單、沒有 iframe、沒有外部腳本，因此可以鎖得很緊。
+     style-src 保留 'unsafe-inline' 是因為動效需要即時改變元素的行內樣式；
+     script-src 未保留，故任何注入的腳本都無法執行。
+     注意：frame-ancestors 經由 meta 傳遞時會被瀏覽器忽略，
+     需改用伺服器標頭才有效果，列於 README 待網域到位後設定。 -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
@@ -14,8 +21,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="css/style.css">
-<!-- 先標記 JS 可用，動效的初始隱藏狀態才會生效；避免畫面閃爍 -->
-<script>document.documentElement.classList.add('js');</script>
+<script src="js/boot.js"></script>
 </head>
 <body>
 
